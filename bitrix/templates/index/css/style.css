@@ -108,8 +108,8 @@ ul.vip_spisok {
     list-style-type: none;
     border-top: 4px solid #92B8D1;
     border-bottom: 4px solid #92B8D1;
-    left: 241px;
-    top: 0;
+    left: 100%;
+    top: -4px;
     display: none;
 }
 
