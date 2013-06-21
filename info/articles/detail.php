@@ -1,6 +1,6 @@
 <?
-	require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-	$APPLICATION->SetTitle("Новости");
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetTitle("Детальная");
 ?>
 	<div class = "sidebar_R left_sid">
 		<?$APPLICATION->IncludeComponent("bitrix:menu", "left_menu_for_page", array(
@@ -85,27 +85,16 @@
 	</div>
 
 	<div class = "sidebar_L">
-		<?$APPLICATION->IncludeComponent("bitrix:catalog.section", "news_list", array(
+		<?$APPLICATION->IncludeComponent(
+			"bitrix:catalog.element",
+			"",
+			Array(
 				"IBLOCK_TYPE" => "news",
 				"IBLOCK_ID" => "6",
+				"ELEMENT_ID" => $_REQUEST["ELEMENT_ID"],
+				"ELEMENT_CODE" => "",
 				"SECTION_ID" => $_REQUEST["SECTION_ID"],
 				"SECTION_CODE" => "",
-				"SECTION_USER_FIELDS" => array(
-					0 => "",
-					1 => "",
-				),
-				"ELEMENT_SORT_FIELD" => "sort",
-				"ELEMENT_SORT_ORDER" => "asc",
-				"FILTER_NAME" => "arrFilter",
-				"INCLUDE_SUBSECTIONS" => "Y",
-				"SHOW_ALL_WO_SECTION" => "Y",
-				"PAGE_ELEMENT_COUNT" => "30",
-				"LINE_ELEMENT_COUNT" => "3",
-				"PROPERTY_CODE" => array(
-					0 => "",
-					1 => "",
-				),
-				"OFFERS_LIMIT" => "5",
 				"SECTION_URL" => "",
 				"DETAIL_URL" => "",
 				"BASKET_URL" => "/personal/basket.php",
@@ -114,37 +103,32 @@
 				"PRODUCT_QUANTITY_VARIABLE" => "quantity",
 				"PRODUCT_PROPS_VARIABLE" => "prop",
 				"SECTION_ID_VARIABLE" => "SECTION_ID",
-				"AJAX_MODE" => "N",
-				"AJAX_OPTION_JUMP" => "N",
-				"AJAX_OPTION_STYLE" => "Y",
-				"AJAX_OPTION_HISTORY" => "N",
-				"CACHE_TYPE" => "N",
-				"CACHE_TIME" => "36000000",
-				"CACHE_GROUPS" => "Y",
 				"META_KEYWORDS" => "-",
 				"META_DESCRIPTION" => "-",
 				"BROWSER_TITLE" => "-",
-				"ADD_SECTIONS_CHAIN" => "N",
-				"DISPLAY_COMPARE" => "N",
 				"SET_TITLE" => "Y",
 				"SET_STATUS_404" => "N",
-				"CACHE_FILTER" => "N",
+				"ADD_SECTIONS_CHAIN" => "Y",
+				"PROPERTY_CODE" => array(),
+				"OFFERS_LIMIT" => "0",
 				"PRICE_CODE" => array(),
 				"USE_PRICE_COUNT" => "N",
 				"SHOW_PRICE_COUNT" => "1",
 				"PRICE_VAT_INCLUDE" => "Y",
+				"PRICE_VAT_SHOW_VALUE" => "N",
 				"PRODUCT_PROPERTIES" => array(),
 				"USE_PRODUCT_QUANTITY" => "N",
-				"DISPLAY_TOP_PAGER" => "N",
-				"DISPLAY_BOTTOM_PAGER" => "N",
-				"PAGER_TITLE" => "Товары",
-				"PAGER_SHOW_ALWAYS" => "Y",
-				"PAGER_TEMPLATE" => "",
-				"PAGER_DESC_NUMBERING" => "N",
-				"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-				"PAGER_SHOW_ALL" => "Y",
-				"AJAX_OPTION_ADDITIONAL" => ""
-			), false);?>
+				"LINK_IBLOCK_TYPE" => "",
+				"LINK_IBLOCK_ID" => "",
+				"LINK_PROPERTY_SID" => "",
+				"LINK_ELEMENTS_URL" => "link.php?PARENT_ELEMENT_ID=#ELEMENT_ID#",
+				"CACHE_TYPE" => "N",
+				"CACHE_TIME" => "36000000",
+				"CACHE_GROUPS" => "Y",
+				"USE_ELEMENT_COUNTER" => "Y"
+			),
+		false
+		);?>
 
 	</div>
-<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
