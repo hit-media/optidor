@@ -84,6 +84,7 @@ ul.sub_menu {
     border-top: 4px solid #92B8D1;
     border-bottom: 4px solid #92B8D1;
     display: none;
+    min-width: 100%;
 }
 
 ul.sub_menu li {
@@ -1311,7 +1312,7 @@ ul.filter_in li:hover {
     text-align: center;
     margin-bottom: 20px;
     position: relative;
-    height: 340px;
+    /*height: 340px;*/
     width: 230px;
     overflow: hidden;
 }

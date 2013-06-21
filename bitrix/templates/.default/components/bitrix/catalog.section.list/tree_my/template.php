@@ -35,6 +35,7 @@ if ($_POST) {
 			$property[$props_codes[$key]] = $prop;
 		}
 		;
+		$property['PRICE'] = $product['prices']['simple'];
 
 		$fields = array(
 			'PROPERTY_VALUES' => $property,

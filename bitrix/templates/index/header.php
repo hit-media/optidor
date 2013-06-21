@@ -27,6 +27,15 @@
 			});
 		});
 	</script>
+	<script type = "text/javascript" src = "/bitrix/templates/index/js/jquery.min.1.4.js"></script>
+	<script type = "text/javascript" src = "/bitrix/templates/index/js/jquery-ui.min.js"></script>
+	<script type = "text/javascript" src = "/bitrix/templates/index/js/ppgallery.js"></script>
+	<script type = "text/javascript">
+		$(function () {
+			$('#gallery').ppGallery();
+		});
+	</script>
+
 </head>
 <body>
 <?$APPLICATION->ShowPanel()?>
@@ -34,7 +43,7 @@
 <div id = "header">
 	<h1>
 		<a href = "/">
-			<img src = "image/logo.png" alt = ""/>
+			<img src = "/bitrix/templates/index/image/logo.png" alt = ""/>
 		</a>
 	</h1>
 
@@ -49,74 +58,80 @@
 	<div class = "clear"></div>
 
 	<div class = "menu">
-<!--		<ul class = "menu_top">-->
-<!--			<li><a href = "#">О компании</a>-->
-<!--				<ul class = "sub_menu">-->
-<!--					<li><a href = "#">Двери входные</a></li>-->
-<!--					<li><a href = "#">Двери межкомнатные</a></li>-->
-<!--					<li><a href = "#">Противопожарная продукция</a>-->
-<!--						<ul class = "vip_spisok">-->
-<!--							<li><a href = "#">Рентгенозащитные двери</a></li>-->
-<!--							<li><a href = "#">Дариано Порте</a></li>-->
-<!--							<li><a href = "#">Оникс</a></li>-->
-<!--							<li><a href = "#">Виво Порте</a></li>-->
-<!--							<li><a href = "#">Ламинированные</a></li>-->
-<!--							<li><a href = "#">Облицованные пвх</a></li>-->
-<!--							<li><a href = "#">Шпонированные</a></li>-->
-<!--						</ul>-->
-<!--					</li>-->
-<!--					<li><a href = "#">Стелажи</a>-->
-<!--						<ul class = "vip_spisok">-->
-<!--							<li><a href = "#">Рентгенозащитные двери</a></li>-->
-<!--							<li><a href = "#">Дариано Порте</a></li>-->
-<!--							<li><a href = "#">Оникс</a></li>-->
-<!--							<li><a href = "#">Виво Порте</a></li>-->
-<!--							<li><a href = "#">Ламинированные</a></li>-->
-<!--							<li><a href = "#">Облицованные пвх</a></li>-->
-<!--							<li><a href = "#">Шпонированные</a></li>-->
-<!--						</ul>-->
-<!--					</li>-->
-<!--				</ul>-->
-<!--			</li>-->
-<!--			<li><a href = "#">Каталог</a>-->
-<!--				<ul class = "sub_menu">-->
-<!--					<li><a href = "#">Двери входные</a></li>-->
-<!--					<li><a href = "#">Двери межкомнатные</a></li>-->
-<!--					<li><a href = "#">Противопожарная продукция</a>-->
-<!--						<ul class = "vip_spisok">-->
-<!--							<li><a href = "#">Рентгенозащитные двери</a></li>-->
-<!--							<li><a href = "#">Дариано Порте</a></li>-->
-<!--							<li><a href = "#">Оникс</a></li>-->
-<!--							<li><a href = "#">Виво Порте</a></li>-->
-<!--							<li><a href = "#">Ламинированные</a></li>-->
-<!--							<li><a href = "#">Облицованные пвх</a></li>-->
-<!--							<li><a href = "#">Шпонированные</a></li>-->
-<!--						</ul>-->
-<!--					</li>-->
-<!--					<li><a href = "#">Стелажи</a>-->
-<!--						<ul class = "vip_spisok">-->
-<!--							<li><a href = "#">Рентгенозащитные двери</a></li>-->
-<!--							<li><a href = "#">Дариано Порте</a></li>-->
-<!--							<li><a href = "#">Оникс</a></li>-->
-<!--							<li><a href = "#">Виво Порте</a></li>-->
-<!--							<li><a href = "#">Ламинированные</a></li>-->
-<!--							<li><a href = "#">Облицованные пвх</a></li>-->
-<!--							<li><a href = "#">Шпонированные</a></li>-->
-<!--						</ul>-->
-<!--					</li>-->
-<!--				</ul>-->
-<!--			</li>-->
-<!--			<li><a href = "#">Акции</a></li>-->
-<!--			<li><a href = "#">Услуги</a></li>-->
-<!--			<li><a href = "#">Информация</a></li>-->
-<!--			<li><a href = "#">Контакты</a></li>-->
-<!--		</ul>-->
-		<?$APPLICATION->IncludeComponent(
-			"bitrix:menu",
-			"top_menu",
-			Array(
-			)
-		);?>
+		<!--		<ul class = "menu_top">-->
+		<!--			<li><a href = "#">О компании</a>-->
+		<!--				<ul class = "sub_menu">-->
+		<!--					<li><a href = "#">Двери входные</a></li>-->
+		<!--					<li><a href = "#">Двери межкомнатные</a></li>-->
+		<!--					<li><a href = "#">Противопожарная продукция</a>-->
+		<!--						<ul class = "vip_spisok">-->
+		<!--							<li><a href = "#">Рентгенозащитные двери</a></li>-->
+		<!--							<li><a href = "#">Дариано Порте</a></li>-->
+		<!--							<li><a href = "#">Оникс</a></li>-->
+		<!--							<li><a href = "#">Виво Порте</a></li>-->
+		<!--							<li><a href = "#">Ламинированные</a></li>-->
+		<!--							<li><a href = "#">Облицованные пвх</a></li>-->
+		<!--							<li><a href = "#">Шпонированные</a></li>-->
+		<!--						</ul>-->
+		<!--					</li>-->
+		<!--					<li><a href = "#">Стелажи</a>-->
+		<!--						<ul class = "vip_spisok">-->
+		<!--							<li><a href = "#">Рентгенозащитные двери</a></li>-->
+		<!--							<li><a href = "#">Дариано Порте</a></li>-->
+		<!--							<li><a href = "#">Оникс</a></li>-->
+		<!--							<li><a href = "#">Виво Порте</a></li>-->
+		<!--							<li><a href = "#">Ламинированные</a></li>-->
+		<!--							<li><a href = "#">Облицованные пвх</a></li>-->
+		<!--							<li><a href = "#">Шпонированные</a></li>-->
+		<!--						</ul>-->
+		<!--					</li>-->
+		<!--				</ul>-->
+		<!--			</li>-->
+		<!--			<li><a href = "#">Каталог</a>-->
+		<!--				<ul class = "sub_menu">-->
+		<!--					<li><a href = "#">Двери входные</a></li>-->
+		<!--					<li><a href = "#">Двери межкомнатные</a></li>-->
+		<!--					<li><a href = "#">Противопожарная продукция</a>-->
+		<!--						<ul class = "vip_spisok">-->
+		<!--							<li><a href = "#">Рентгенозащитные двери</a></li>-->
+		<!--							<li><a href = "#">Дариано Порте</a></li>-->
+		<!--							<li><a href = "#">Оникс</a></li>-->
+		<!--							<li><a href = "#">Виво Порте</a></li>-->
+		<!--							<li><a href = "#">Ламинированные</a></li>-->
+		<!--							<li><a href = "#">Облицованные пвх</a></li>-->
+		<!--							<li><a href = "#">Шпонированные</a></li>-->
+		<!--						</ul>-->
+		<!--					</li>-->
+		<!--					<li><a href = "#">Стелажи</a>-->
+		<!--						<ul class = "vip_spisok">-->
+		<!--							<li><a href = "#">Рентгенозащитные двери</a></li>-->
+		<!--							<li><a href = "#">Дариано Порте</a></li>-->
+		<!--							<li><a href = "#">Оникс</a></li>-->
+		<!--							<li><a href = "#">Виво Порте</a></li>-->
+		<!--							<li><a href = "#">Ламинированные</a></li>-->
+		<!--							<li><a href = "#">Облицованные пвх</a></li>-->
+		<!--							<li><a href = "#">Шпонированные</a></li>-->
+		<!--						</ul>-->
+		<!--					</li>-->
+		<!--				</ul>-->
+		<!--			</li>-->
+		<!--			<li><a href = "#">Акции</a></li>-->
+		<!--			<li><a href = "#">Услуги</a></li>-->
+		<!--			<li><a href = "#">Информация</a></li>-->
+		<!--			<li><a href = "#">Контакты</a></li>-->
+		<!--		</ul>-->
+		<?$APPLICATION->IncludeComponent("bitrix:menu", "horizontal_multilevel_my", array(
+			"ROOT_MENU_TYPE" => "top",
+			"MENU_CACHE_TYPE" => "N",
+			"MENU_CACHE_TIME" => "3600",
+			"MENU_CACHE_USE_GROUPS" => "Y",
+			"MENU_CACHE_GET_VARS" => array(),
+			"MAX_LEVEL" => "3",
+			"CHILD_MENU_TYPE" => "left",
+			"USE_EXT" => "Y",
+			"DELAY" => "N",
+			"ALLOW_MULTI_SELECT" => "N"
+		), false);?>
 	</div>
 
 </div>
@@ -130,7 +145,7 @@
 				<div class = "sliderbutton" id = "slideleft" onclick = "slideshow.move(-1)"></div>
 				<div id = "slider">
 					<ul>
-						<li><img src = "image/slide1.jpg" alt = ""/>
+						<li><img src = "/bitrix/templates/index/image/slide1.jpg" alt = ""/>
 
 							<div class = "info">
 								<h2>«Оптидор»: лучший в Курске</h2>
@@ -144,7 +159,7 @@
 								<a href = "#">Подробнее</a>
 							</div>
 						</li>
-						<li><img src = "image/slide1.jpg" alt = ""/>
+						<li><img src = "/bitrix/templates/index/image/slide1.jpg" alt = ""/>
 
 							<div class = "info">
 								<h2>«Оптидор»: лучший в Курске</h2>
@@ -158,7 +173,7 @@
 								<a href = "#">Подробнее</a>
 							</div>
 						</li>
-						<li><img src = "image/slide1.jpg" alt = ""/>
+						<li><img src = "/bitrix/templates/index/image/slide1.jpg" alt = ""/>
 
 							<div class = "info">
 								<h2>«Оптидор»: лучший в Курске</h2>
@@ -184,52 +199,53 @@
 				<div class = "bg_bott"></div>
 
 			</div>
-
-			<div class = "row_tovar">
-				<div class = "tovar">
-					<div class = "center">
-						<a href = "#">
-							<img src = "image/pic1.png" alt = ""/>
-						</a>
+			<?if ($_SERVER['REQUEST_URI'] == "/"): ?>
+				<div class = "row_tovar">
+					<div class = "tovar">
+						<div class = "center">
+							<a href = "#">
+								<img src = "/bitrix/templates/index/image/pic1.png" alt = ""/>
+							</a>
+						</div>
+						<a href = "#">Двери межкомнатные</a>
 					</div>
-					<a href = "#">Двери межкомнатные</a>
-				</div>
-				<div class = "tovar">
-					<div class = "center">
-						<a href = "#">
-							<img src = "image/pic2.png" alt = ""/>
-						</a>
+					<div class = "tovar">
+						<div class = "center">
+							<a href = "#">
+								<img src = "/bitrix/templates/index/image/pic2.png" alt = ""/>
+							</a>
+						</div>
+						<a href = "#">Двери межкомнатные</a>
 					</div>
-					<a href = "#">Двери межкомнатные</a>
-				</div>
-				<div class = "tovar">
-					<div class = "center">
-						<a href = "#">
-							<img src = "image/pic3.png" alt = ""/>
-						</a>
+					<div class = "tovar">
+						<div class = "center">
+							<a href = "#">
+								<img src = "/bitrix/templates/index/image/pic3.png" alt = ""/>
+							</a>
+						</div>
+						<a href = "#">Двери межкомнатные</a>
 					</div>
-					<a href = "#">Двери межкомнатные</a>
-				</div>
-				<div class = "tovar">
-					<div class = "center">
-						<a href = "#">
-							<img src = "image/pic4.png" alt = ""/>
-						</a>
+					<div class = "tovar">
+						<div class = "center">
+							<a href = "#">
+								<img src = "/bitrix/templates/index/image/pic4.png" alt = ""/>
+							</a>
+						</div>
+						<a href = "#">Двери межкомнатные</a>
 					</div>
-					<a href = "#">Двери межкомнатные</a>
-				</div>
-				<div class = "tovar">
-					<div class = "center">
-						<a href = "#">
-							<img src = "image/pic5.png" alt = ""/>
-						</a>
+					<div class = "tovar">
+						<div class = "center">
+							<a href = "#">
+								<img src = "/bitrix/templates/index/image/pic5.png" alt = ""/>
+							</a>
+						</div>
+						<a href = "#">Двери межкомнатные</a>
 					</div>
-					<a href = "#">Двери межкомнатные</a>
 				</div>
-			</div>
+			<? endif?>
 
 		</div>
 	</div>
 </div>
 <div id = "content">
-<div class = "content_center">
+	<div class = "content_center">
