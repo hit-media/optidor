@@ -2,7 +2,7 @@
 	die();
 } ?>
 <?
-if ($_POST) {
+if ($_POST['load']) {
 	CModule::IncludeModule('iblock');
 	$el = new CIblockElement();
 	//	print_r($_FILES);
@@ -51,6 +51,8 @@ if ($_POST) {
 	unlink($file);
 }
 
+
+
 function selected($id)
 {
 	echo $_REQUEST['section_id'] == $id ? "selected='selected'" : "";
@@ -61,9 +63,55 @@ $dote = array(
 	'...',
 	'....',
 );
+
+function CheckBrend($name)
+{
+	global $DB;
+	$q = "
+	SELECT el.NAME FROM
+	b_iblock_element as el
+	WHERE el.NAME = '{$name}' AND
+			el.IBLOCK_ID = '10'
+	";
+	$t = $DB->Query($q);
+	while ($res = $t->Fetch()) {
+		$brands[] = $res;
+	}
+	if (count($brands) > 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+if ($_POST['GET_BRENDS']) {
+	$q = "SELECT brand.VALUE
+	FROM
+	b_iblock_element_property as brand
+	where brand.IBLOCK_PROPERTY_ID = 10
+	group by brand.VALUE
+	";
+	global $DB;
+	$t      = $DB->Query($q);
+	$brands = array();
+
+	CModule::IncludeModule('iblock');
+	$el = new CIblockElement();
+	while ($res = $t->Fetch()) {
+		if (!CheckBrend($res['VALUE'])) {
+			$fields = array(
+				'NAME' => $res['VALUE'],
+				'IBLOCK_ID' => 10
+			);
+			$el->Add($fields);
+			$brands[] = $res;
+		}
+	}
+}
 ?>
 
 <pre><?print_r($fields)?></pre>
+
 <!--<pre>--><?//print_r($arResult)?><!--</pre>-->
 <form method = "post" enctype = "multipart/form-data">
 	Раздел<br>
@@ -75,5 +123,10 @@ $dote = array(
 	Файл для загрузки <br>
 	<input type = "file" name = "array">
 	<br>
-	<input type = "submit" value = "Загрузить">
+	<input type = "submit" name = "load" value = "Загрузить">
 </form>
+<form method = "post" enctype = "multipart/form-data" action = "">
+	<input type = "submit" value = "Получить уникальные занчения брендов">
+	<input type = "hidden" name = "GET_BRENDS" value = "123">
+</form>
+<pre><?print_r($brands)?></pre>
