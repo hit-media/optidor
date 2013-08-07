@@ -5,12 +5,15 @@
 	<div class = "gallery_scroll_wrap">
 		<div class = "gallery_scroll">
 			<ul class = "gallery">
-				<?foreach($arResult['ITEMS'] as $item):?>
-						<?$img = CFile::ResizeImageGet($item['DETAIL_PICTURE']['ID'],array('width' => 55,'height' => 120))?>
-				<li>
-					<a href = "/katalog/<?=$item['CODE']?>/<?=$item['CODE']?>/"><img src = "<?=$img['src'] ?>" alt = ""></a>
-				</li>
-				<?endforeach?>
+				<?foreach ($arResult['ITEMS'] as $item): ?>
+					<? $img = CFile::ResizeImageGet($item['DETAIL_PICTURE']['ID'], array(
+						'width' => 55,
+						'height' => 120
+					)) ?>
+					<li>
+						<a href = "/katalog/<?= $item['CODE'] ?>/<?= $item['CODE'] ?>/"><img src = "<?= $img['src'] ?>" alt = ""></a>
+					</li>
+				<? endforeach?>
 			</ul>
 		</div>
 	</div>

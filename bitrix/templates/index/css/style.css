@@ -648,7 +648,7 @@ img {
     height: 155px !important;
     overflow: hidden;
     position: relative;
-    left: 250px;
+    left: 218px;
     width: 510px;
 }
 
@@ -708,7 +708,7 @@ ul.carousel li .border {
 }
 
 .jcarousel-list-horizontal {
-    width: 960px !important;
+    width: 2500px !important;
 }
 
 ul.menu_top li a.active {

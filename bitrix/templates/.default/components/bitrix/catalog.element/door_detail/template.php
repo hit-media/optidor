@@ -15,15 +15,19 @@ $section = CIBlockSection::GetByID($arResult['IBLOCK_SECTION_ID'])
 	'width' => 230,
 	'height' => 2000
 )) ?>
+
 <div class = "sidebar_L">
 	<div class = "left_cont">
 		<div class = "big_picture">
-			<img src = "<?= $img['src'] ?>" alt = "">
+			<a href="<?= $img['src'] ?>" id="example7"><img src = "<?= $img['src'] ?>" alt = ""></a>
 		</div>
 	</div>
 
 	<div class = "right_cont">
+
+		<div class="clear"></div>
 		<h4><?=$section['NAME']?></h4>
+
 		<table class = "sett">
 			<tbody>
 			<?foreach ($first_properties as $key => $f): ?>
