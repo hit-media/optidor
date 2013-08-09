@@ -33,7 +33,7 @@
 				</a>
 
 			<div class = "<?=GetDop($product)?>"></div>
-			<div class = "price_product"><?=$product['PROPERTIES']['PRICE']['VALUE']?> ð.</div>
+			<div class = "price_product"><?=$product['PROPERTIES']['PRICE']['VALUE']?> Ñ€.</div>
 		</div>
 		<a href = "<?= $product['DETAIL_PAGE_URL'] ?>"><?=$product['NAME']?></a>
 	</div>
@@ -41,3 +41,4 @@
 
 <div class="clear"></div>
 <?=$arResult['NAV_STRING']?>
+

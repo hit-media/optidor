@@ -98,9 +98,12 @@ ul.sub_menu li a {
     padding: 11px !important;
     font-size: 14px !important;
     color: #0D77BD !important;
-    text-transform: capitalize !important;
+    text-transform: lowercase !important;
     white-space: nowrap !important;
     padding-right: 35px !important;
+}
+ul.sub_menu li a:first-letter {
+    text-transform: uppercase;
 }
 
 ul.vip_spisok {
@@ -402,7 +405,7 @@ img {
 
 .sidebar_L p {
     margin-bottom: 15px;
-    line-height: 20px;
+    line-height: 14px;
 }
 
 .content_center h3 {
@@ -581,11 +584,13 @@ img {
     background-image: url(../image/right_karus_hover.png);
 }
 
+
 .gallery_wrap {
-    height: 200px;
+    height: 180px;
     top: -40px;
     position: relative;
     width: 900px;
+    overflow: hidden;
 }
 
 .gallery {
@@ -675,6 +680,7 @@ ul.carousel li a.carous_a:hover {
     cursor: pointer;
     background: transparent url("../image/right_karus.png") no-repeat top right;
 }
+
 
 #wrapper {
     margin-top: 20px;
@@ -1104,6 +1110,9 @@ ul.setting li {
     font-size: 16px;
     padding: 5px 20px;
     font-style: normal;
+}
+.red{
+    background-color: #ff240d!important;
 }
 
 ul.tab {
