@@ -1,0 +1,28 @@
+ul.breadcrumb-navigation
+{
+	padding:0; margin:0;
+	padding-top:4px;
+	list-style:none;
+    margin-left: 10px;
+}
+
+ul.breadcrumb-navigation li
+{
+    display:inline;
+}
+ul.breadcrumb-navigation li:first-child{
+    margin-left: 10px;
+}
+
+ul.breadcrumb-navigation a
+{
+    color: #0D77BD;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+}
+
+ul.breadcrumb-navigation span
+{
+    color: #0D77BD;
+}
