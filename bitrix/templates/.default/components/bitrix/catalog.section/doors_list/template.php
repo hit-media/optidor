@@ -31,10 +31,17 @@ function GetDop($array)
 		'width' => 100,
 		'height' => 220
 	)) ?>
+		<?
+	if(!$product['PROPERTIES']['CHECK']['VALUE']){
+		$string = "width = '100' height='218'";
+	}else{
+		$string = '';
+	}
+	?>
 	<div class = "product_spic" id = "<?= $this->GetEditAreaId($product['ID']); ?>">
 		<div class = "product_img">
 			<a class = "img_href" href = "<?= $product['DETAIL_PAGE_URL'] ?>">
-				<img src = "<?= $img['src'] ?>" alt = "">
+				<img <?=$string?> src = "<?= $img['src'] ?>" alt = "">
 			</a>
 
 			<div class = "<?= GetDop($product) ?>"></div>

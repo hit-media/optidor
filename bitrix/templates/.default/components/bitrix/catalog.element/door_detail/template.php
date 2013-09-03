@@ -16,25 +16,27 @@ $section = CIBlockSection::GetByID($arResult['IBLOCK_SECTION_ID'])
 	'width' => 230,
 	'height' => 2000
 )) ?>
-<script type="text/javascript">
+<script type = "text/javascript">
 	$(function () {
-	    $('.small_picture a').click(function () {
-	        $('.big_picture img').fadeOut(200);
-	        $('.big_picture img').attr('src', $(this).attr('rel'));
-	        $('.fancy').attr('href', $(this).attr('real_size'));
-	        $('.big_picture img').fadeIn(200);
-	        return false;
-	    });
+		$('.small_picture a').click(function () {
+			$('.big_picture img').fadeOut(200);
+			$('.big_picture img').attr('src', $(this).attr('rel'));
+			$('.fancy').attr('href', $(this).attr('real_size'));
+			$('.big_picture img').fadeIn(200);
+			return false;
+		});
 	});
 </script>
 <div class = "sidebar_L">
 	<div class = "left_cont">
 		<div class = "big_picture">
-			<a id="img_href" href = "<?= $img['src'] ?>" class = "fancy"><img id = "img_conteiner" src = "<?= $img['src'] ?>" alt = ""></a>
+			<a rel = "gallery" id = "img_href" href = "<?= $img['src'] ?>" class = "fancy"><img id = "img_conteiner" src = "<?= $img['src']
+				?>" alt = ""></a>
 		</div>
+
 		<?if (count($arResult['PROPERTIES']['PHOTOS']['VALUE']) > 0): ?>
 			<? foreach ($arResult['PROPERTIES']['PHOTOS']['VALUE'] as $photo): ?>
-				<? $img = CFile::ResizeImageGet($photo, array(
+				<? $img        = CFile::ResizeImageGet($photo, array(
 					'width' => 40,
 					'height' => 50
 				));
@@ -42,15 +44,21 @@ $section = CIBlockSection::GetByID($arResult['IBLOCK_SECTION_ID'])
 					'width' => 230,
 					'height' => 2000
 				));
-				$realsize = CFile::GetPath($photo);
+				$realsize      = CFile::GetPath($photo);
 
 				?>
-				<div class = "small_picture">
-					<a href = "" real_size = "<?=$realsize?>" rel = "<?= $for_conteyner['src'] ?>">
-						<img src = "<?= $img['src'] ?>" alt = "">
-					</a>
-				</div>
+
+			<div class = "small_picture">
+				<a href = "" real_size = "<?= $realsize ?>" rel = "<?= $for_conteyner['src'] ?>">
+					<img src = "<?= $img['src'] ?>" alt = "">
+				</a>
+			</div>
 			<? endforeach ?>
+			<div style = "display: none">
+			<? foreach ($arResult['PROPERTIES']['PHOTOS']['VALUE'] as $photo): ?>
+				<a rel = "gallery" href = "<?= CFile::GetPath($photo) ?>">
+			<?endforeach ?>
+		</div>
 		<? endif?>
 	</div>
 
