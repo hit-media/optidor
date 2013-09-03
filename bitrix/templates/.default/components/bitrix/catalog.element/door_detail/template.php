@@ -16,21 +16,21 @@ $section = CIBlockSection::GetByID($arResult['IBLOCK_SECTION_ID'])
 	'width' => 230,
 	'height' => 2000
 )) ?>
-<script type = "text/javascript">
-	$(document).ready(function () {
-		$('.small_picture a').click(function () {
-			$('.big_picture img').fadeOut(200);
-			$('.big_picture img').attr('src', $(this).attr('rel'));
-			$('.big_picture img').fadeIn(200);
-			return false;
-		});
+<script type="text/javascript">
+	$(function () {
+	    $('.small_picture a').click(function () {
+	        $('.big_picture img').fadeOut(200);
+	        $('.big_picture img').attr('src', $(this).attr('rel'));
+	        $('.fancy').attr('href', $(this).attr('real_size'));
+	        $('.big_picture img').fadeIn(200);
+	        return false;
+	    });
 	});
-
 </script>
 <div class = "sidebar_L">
 	<div class = "left_cont">
 		<div class = "big_picture">
-			<a href = "<?= $img['src'] ?>" class = "fancy"><img id = "img_conteiner" src = "<?= $img['src'] ?>" alt = ""></a>
+			<a id="img_href" href = "<?= $img['src'] ?>" class = "fancy"><img id = "img_conteiner" src = "<?= $img['src'] ?>" alt = ""></a>
 		</div>
 		<?if (count($arResult['PROPERTIES']['PHOTOS']['VALUE']) > 0): ?>
 			<? foreach ($arResult['PROPERTIES']['PHOTOS']['VALUE'] as $photo): ?>
@@ -41,10 +41,12 @@ $section = CIBlockSection::GetByID($arResult['IBLOCK_SECTION_ID'])
 				$for_conteyner = CFile::ResizeImageGet($photo, array(
 					'width' => 230,
 					'height' => 2000
-				))
+				));
+				$realsize = CFile::GetPath($photo);
+
 				?>
 				<div class = "small_picture">
-					<a href = "" rel = "<?= $for_conteyner['src'] ?>">
+					<a href = "" real_size = "<?=$realsize?>" rel = "<?= $for_conteyner['src'] ?>">
 						<img src = "<?= $img['src'] ?>" alt = "">
 					</a>
 				</div>
