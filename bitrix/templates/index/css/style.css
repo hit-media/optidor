@@ -1,3 +1,11 @@
+.red_price{
+    color: red!important;
+    font-size: 19px!important;
+    background-color: transparent!important;
+    text-shadow: 1px 1px 0 #111111;
+    display: inline!important;
+}
+
 * {
     margin: 0;
     padding: 0;
